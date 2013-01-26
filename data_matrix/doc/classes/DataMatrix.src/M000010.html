@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>to_csv (DataMatrix)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File data_matrix.rb, line 180</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_csv</span>
+    <span class="ruby-identifier">row_item_list</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">row_items</span>()
+    <span class="ruby-identifier">col_item_list</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">col_items</span>()
+
+    <span class="ruby-comment cmt"># ƒwƒbƒ_s</span>
+    <span class="ruby-identifier">csv</span> =<span class="ruby-value str">&quot;,&quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">col_item_list</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">','</span>)<span class="ruby-operator">+</span><span class="ruby-value str">&quot;\n&quot;</span>
+
+    <span class="ruby-comment cmt"># ƒf[ƒ^s</span>
+    <span class="ruby-identifier">row_item_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rowidx</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">csv</span> <span class="ruby-operator">+=</span><span class="ruby-node">&quot;#{rowidx},&quot;</span>
+      <span class="ruby-identifier">col_item_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">colidx</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">a_cell</span> = <span class="ruby-identifier">find_cell</span>(<span class="ruby-identifier">rowidx</span>, <span class="ruby-identifier">colidx</span>)
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">a_cell</span>
+          <span class="ruby-comment cmt"># ƒZƒ‹‚Ì•\Œ»ƒ‹[ƒ‹‚ð“K—p‚µACSV—p‚Ì‰ÁH‚ðs‚¤B</span>
+          <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@format_rule</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">a_cell</span>.<span class="ruby-identifier">value</span>)
+          <span class="ruby-identifier">value</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp re">/&quot;/</span>,<span class="ruby-value str">'&quot;&quot;&quot;'</span>)
+          <span class="ruby-identifier">value</span>.<span class="ruby-identifier">tr!</span>(<span class="ruby-value str">&quot;\r&quot;</span>,<span class="ruby-value str">''</span>) <span class="ruby-comment cmt"># TODO:windows‚Å‚ÌCRíœ‚Í‚±‚ê‚ÅOK?</span>
+          <span class="ruby-identifier">csv</span> <span class="ruby-operator">+=</span><span class="ruby-value str">'&quot;'</span><span class="ruby-operator">+</span><span class="ruby-identifier">value</span><span class="ruby-operator">+</span><span class="ruby-value str">'&quot;,'</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">csv</span> <span class="ruby-operator">+=</span><span class="ruby-value str">','</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-identifier">csv</span> = <span class="ruby-identifier">csv</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>]<span class="ruby-operator">+</span><span class="ruby-value str">&quot;\n&quot;</span> <span class="ruby-comment cmt"># s––‚Ì , ‚ðœ‹Ž‚µ‚Ä‰üs</span>
+    <span class="ruby-keyword kw">end</span>
+    <span class="ruby-identifier">csv</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

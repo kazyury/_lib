@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test01_cell01 (TestDataMatrix)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File testcase.rb, line 22</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test01_cell01</span>
+    <span class="ruby-identifier">cell1</span> = <span class="ruby-ivar">@dm</span>.<span class="ruby-identifier">cell</span>(<span class="ruby-value str">&quot;A&quot;</span>,<span class="ruby-value str">&quot;1&quot;</span>)
+    
+    <span class="ruby-comment cmt"># cell ‚É‚Í ƒAƒhƒŒƒX‚ªÝ’è‚³‚ê‚Ä‚¢‚éB</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">'A'</span>,<span class="ruby-identifier">cell1</span>.<span class="ruby-identifier">row_addr</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">'1'</span>,<span class="ruby-identifier">cell1</span>.<span class="ruby-identifier">col_addr</span>)
+
+    <span class="ruby-comment cmt"># “¯‚¶ƒAƒhƒŒƒX‚É‚Í“¯‚¶CellƒIƒuƒWƒFƒNƒg‚ª•Ô‹p‚³‚ê‚éB</span>
+    <span class="ruby-identifier">cell2</span> = <span class="ruby-ivar">@dm</span>.<span class="ruby-identifier">cell</span>(<span class="ruby-value str">&quot;A&quot;</span>,<span class="ruby-value str">&quot;1&quot;</span>)
+
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">cell1</span>.<span class="ruby-identifier">object_id</span>, <span class="ruby-identifier">cell2</span>.<span class="ruby-identifier">object_id</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

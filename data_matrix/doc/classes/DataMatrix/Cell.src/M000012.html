@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (DataMatrix::Cell)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File data_matrix.rb, line 24</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">row</span>, <span class="ruby-identifier">col</span>)
+      <span class="ruby-comment cmt"># ƒZƒ‹sƒAƒhƒŒƒX(String‚ð‘z’è)</span>
+      <span class="ruby-ivar">@row_addr</span> = <span class="ruby-identifier">row</span> 
+      <span class="ruby-comment cmt"># ƒZƒ‹—ñƒAƒhƒŒƒX(String‚ð‘z’è)</span>
+      <span class="ruby-ivar">@col_addr</span> = <span class="ruby-identifier">col</span> 
+      <span class="ruby-comment cmt"># ƒZƒ‹’l(”CˆÓ‚ÌObject‚ð‘z’è)</span>
+      <span class="ruby-ivar">@value</span> = <span class="ruby-keyword kw">nil</span>    
+      <span class="ruby-comment cmt">#:nodoc: ƒZƒ‹’l‚Ìd‚Ë‚ ‚í‚¹Žžƒ‹[ƒ‹</span>
+      <span class="ruby-ivar">@merge_rule</span> = <span class="ruby-keyword kw">nil</span> 
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

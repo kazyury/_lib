@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (DataMatrix)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File data_matrix.rb, line 59</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+    <span class="ruby-ivar">@cells</span>=[]
+    <span class="ruby-ivar">@row_frame</span>=<span class="ruby-keyword kw">nil</span>  <span class="ruby-comment cmt"># ŒÅ’è‚ÌsƒAƒhƒŒƒX</span>
+    <span class="ruby-ivar">@col_frame</span>=<span class="ruby-keyword kw">nil</span>  <span class="ruby-comment cmt"># ŒÅ’è‚Ì—ñƒAƒhƒŒƒX</span>
+    <span class="ruby-comment cmt"># ƒ}[ƒWƒ‹[ƒ‹. ƒfƒtƒHƒ‹ƒg‚ÍMergeRuleError‚Ì‘—o</span>
+    <span class="ruby-ivar">@merge_rule</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">old</span>,<span class="ruby-identifier">new</span><span class="ruby-operator">|</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">MergeRuleError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value str">&quot;Merge rule is not set. use DataMatrix#when_cell_merge().&quot;</span>)}
+    <span class="ruby-comment cmt"># ƒtƒH[ƒ}ƒbƒgƒ‹[ƒ‹. ƒfƒtƒHƒ‹ƒg‚Íto_s</span>
+    <span class="ruby-ivar">@format_rule</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>}
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
